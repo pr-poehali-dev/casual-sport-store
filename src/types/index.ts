@@ -16,3 +16,13 @@ export interface CartItem {
   selectedSize?: string;
   selectedColor?: string;
 }
+
+export interface Review {
+  id: number;
+  productId: number;
+  name: string;
+  rating: number;
+  date: string;
+  text: string;
+  avatar?: string;
+}

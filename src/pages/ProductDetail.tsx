@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { useCart } from '@/contexts/CartContext';
 import { ChevronLeft, ShoppingCart, Check } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import ProductReviews from '@/components/ProductReviews';
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -171,6 +172,10 @@ const ProductDetail = () => {
                 </Button>
               </div>
             </div>
+          </div>
+          
+          <div className="mt-12">
+            <ProductReviews productId={product.id} />
           </div>
         </div>
       </main>
