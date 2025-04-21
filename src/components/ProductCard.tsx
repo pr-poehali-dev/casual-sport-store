@@ -13,6 +13,21 @@ const ProductCard = ({ product }: ProductCardProps) => {
 
   return (
     <div className="group relative overflow-hidden rounded-lg border bg-white shadow-md transition-all hover:shadow-lg">
+      {/* Кнопка "В корзину" перемещена в верхний правый угол */}
+      <div className="absolute top-4 right-4 z-10 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+        <Button 
+          size="sm" 
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            addToCart(product, 1);
+          }}
+        >
+          <ShoppingCart className="mr-1" size={16} />
+          В корзину
+        </Button>
+      </div>
+      
       <Link to={`/product/${product.id}`} className="block">
         <div className="aspect-square overflow-hidden">
           <img 
@@ -30,19 +45,6 @@ const ProductCard = ({ product }: ProductCardProps) => {
           <p className="mt-1 text-sm text-gray-500 line-clamp-2">{product.description}</p>
         </div>
       </Link>
-      <div className="absolute bottom-4 right-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-        <Button 
-          size="sm" 
-          onClick={(e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            addToCart(product, 1);
-          }}
-        >
-          <ShoppingCart className="mr-1" size={16} />
-          В корзину
-        </Button>
-      </div>
     </div>
   );
 };
